@@ -5,11 +5,11 @@ export default function CapabilitiesSection({ capabilities, onCapabilitySelect }
   const [activeCapId, setActiveCapId] = useState(capabilities[0]?.id);
 
   return (
-    <section className="capabilities-section" id="capabilities">
+    <section className="capabilities-section" id="solutions">
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-badge font-mono">NEXT-GEN DEFENSE SUITE</div>
+          <div className="section-badge font-mono">CYBER DEFENSE SOLUTIONS</div>
           <h2 className="section-title">
             Engineered for <span className="highlight-text">Zero Compromise</span>
           </h2>

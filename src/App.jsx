@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import HeroLeft from './components/HeroLeft';
 import HeroRightVisual from './components/HeroRightVisual';
 import CapabilitiesSection from './components/CapabilitiesSection';
+import PlatformSection, { AboutSection, ContactSection } from './components/CompanySections';
 import { NETWORK_NODES, NETWORK_EDGES, CAPABILITIES } from './data/cyberData';
 import './App.css';
 
@@ -73,8 +74,12 @@ export default function App() {
     }, 3800);
   };
 
-  // Smooth scroll handler
+  // Smooth scroll handler with support for Home (top)
   const handleScrollToSection = (sectionId) => {
+    if (sectionId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -88,7 +93,7 @@ export default function App() {
       <div className="glow-orb-top-left" aria-hidden="true"></div>
       <div className="glow-orb-top-right" aria-hidden="true"></div>
 
-      {/* Responsive Navbar */}
+      {/* Responsive Navbar with Home, Solutions, Platform, About, Contact */}
       <Navbar
         onScrollToSection={handleScrollToSection}
         onTriggerSimulation={handleTriggerSimulation}
@@ -101,7 +106,7 @@ export default function App() {
           <HeroLeft
             metrics={metrics}
             onInspectNode={handleSelectNode}
-            onScrollToCapabilities={() => handleScrollToSection('capabilities')}
+            onScrollToCapabilities={() => handleScrollToSection('solutions')}
             activeSimulation={attackActive}
           />
 
@@ -117,11 +122,27 @@ export default function App() {
         </div>
       </main>
 
-      {/* Capabilities Section */}
+      {/* Solutions Section (3 Cybersecurity Capabilities) */}
       <CapabilitiesSection
         capabilities={CAPABILITIES}
         onCapabilitySelect={(cap) => {
           showToast(`Capability selected: ${cap.title}`);
+        }}
+      />
+
+      {/* Platform Architecture & Monitoring Explanation */}
+      <PlatformSection
+        onScrollToNetwork={() => handleScrollToSection('network-demo')}
+        onTriggerSimulation={handleTriggerSimulation}
+      />
+
+      {/* About AegisNode Section */}
+      <AboutSection />
+
+      {/* Contact & Inquiries Section */}
+      <ContactSection 
+        onContactAction={(actionName) => {
+          showToast(`⚡ ${actionName} initiated. Our security team will connect shortly.`);
         }}
       />
 
@@ -132,7 +153,7 @@ export default function App() {
             AEGISNODE <span>// ZERO-TRUST AUTONOMOUS TELEMETRY</span>
           </div>
           <div className="footer-note">
-            Built for enterprise-grade defense demonstration. Simulated telemetry data.
+            Autonomous Cloud Defense &bull; Next-Gen Security Intelligence.
           </div>
         </div>
       </footer>

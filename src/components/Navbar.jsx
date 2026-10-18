@@ -44,29 +44,47 @@ export default function Navbar({ onScrollToSection, onTriggerSimulation }) {
           <ul className="nav-links">
             <li>
               <a 
-                href="#network-demo" 
+                href="#hero" 
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, 'network-demo')}
+                onClick={(e) => handleNavClick(e, 'hero')}
               >
-                Telemetry Mesh
+                Home
               </a>
             </li>
             <li>
               <a 
-                href="#capabilities" 
+                href="#solutions" 
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, 'capabilities')}
+                onClick={(e) => handleNavClick(e, 'solutions')}
               >
-                Capabilities
+                Solutions
               </a>
             </li>
             <li>
               <a 
-                href="#architecture" 
+                href="#platform" 
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, 'capabilities')}
+                onClick={(e) => handleNavClick(e, 'platform')}
               >
-                Architecture
+                Platform
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#about" 
+                className="nav-link"
+                onClick={(e) => handleNavClick(e, 'about')}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#contact" 
+                className="nav-link"
+                onClick={(e) => handleNavClick(e, 'contact')}
+              >
+                Contact
               </a>
             </li>
           </ul>
@@ -103,29 +121,47 @@ export default function Navbar({ onScrollToSection, onTriggerSimulation }) {
         <ul className="mobile-nav-links">
           <li>
             <a 
-              href="#network-demo" 
+              href="#hero" 
               className="mobile-link"
-              onClick={(e) => handleNavClick(e, 'network-demo')}
+              onClick={(e) => handleNavClick(e, 'hero')}
             >
-              Telemetry Mesh
+              Home
             </a>
           </li>
           <li>
             <a 
-              href="#capabilities" 
+              href="#solutions" 
               className="mobile-link"
-              onClick={(e) => handleNavClick(e, 'capabilities')}
+              onClick={(e) => handleNavClick(e, 'solutions')}
             >
-              Capabilities
+              Solutions
             </a>
           </li>
           <li>
             <a 
-              href="#architecture" 
+              href="#platform" 
               className="mobile-link"
-              onClick={(e) => handleNavClick(e, 'capabilities')}
+              onClick={(e) => handleNavClick(e, 'platform')}
             >
-              Zero-Trust Architecture
+              Platform
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#about" 
+              className="mobile-link"
+              onClick={(e) => handleNavClick(e, 'about')}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className="mobile-link"
+              onClick={(e) => handleNavClick(e, 'contact')}
+            >
+              Contact
             </a>
           </li>
         </ul>

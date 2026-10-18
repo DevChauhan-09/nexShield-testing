@@ -61,9 +61,9 @@ export default function HeroLeft({
           type="button"
           className="btn btn-secondary hero-btn-sub"
           onClick={onScrollToCapabilities}
-          aria-label="Explore Core Capabilities"
+          aria-label="Explore Enterprise Solutions"
         >
-          Explore Capabilities
+          Explore Solutions
           <svg
             className="btn-arrow-icon"
             viewBox="0 0 24 24"
