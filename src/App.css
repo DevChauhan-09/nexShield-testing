@@ -1,0 +1,116 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-section {
+  padding: 4.5rem 0 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-layout-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Footer */
+.app-footer {
+  margin-top: auto;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(3, 7, 16, 0.9);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.footer-brand span {
+  color: var(--cyan-primary);
+  opacity: 0.8;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* Toast Message */
+.interactive-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background: rgba(9, 18, 38, 0.95);
+  border: 1px solid var(--cyan-primary);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  backdrop-filter: blur(12px);
+  animation: slide-up-toast 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cyan-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan-primary);
+}
+
+@keyframes slide-up-toast {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Split Layout */
+@media (max-width: 1040px) {
+  .hero-layout-split {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .hero-section {
+    padding: 3rem 0 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .interactive-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    text-align: center;
+    justify-content: center;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
