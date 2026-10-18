@@ -8,10 +8,10 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
         <div className="section-header">
           <div className="section-badge font-mono">PLATFORM ARCHITECTURE</div>
           <h2 className="section-title">
-            The <span className="highlight-text">Aegis Telemetry Mesh</span>
+            The <span className="highlight-text">NexShield Telemetry Mesh</span>
           </h2>
           <p className="section-subtitle">
-            Demystifying how AegisNode orchestrates kernel-level packet inspection, 
+            Demystifying how NexShield orchestrates kernel-level packet inspection, 
             autonomous telemetry correlation, and instant micro-isolation across distributed hybrid environments.
           </p>
         </div>
@@ -99,13 +99,13 @@ export function AboutSection() {
       <div className="container">
         <div className="about-split-layout">
           <div className="about-content">
-            <div className="section-badge font-mono">ABOUT AEGISNODE</div>
+            <div className="section-badge font-mono">ABOUT NEXSHIELD</div>
             <h2 className="section-title">
               Pioneering <span className="highlight-text">Autonomous Cyber Resilience</span>
             </h2>
             <p className="about-lead">
               Founded on the belief that modern cloud scale moves too quickly for manual incident response, 
-              AegisNode engineers autonomous defensive systems that outpace automated adversaries.
+              NexShield engineers autonomous defensive systems that outpace automated adversaries.
             </p>
             <p className="about-text">
               Our engineering team blends distributed systems architecture, Linux kernel eBPF optimization, 
@@ -171,14 +171,14 @@ export function ContactSection({ onContactAction }) {
             Ready to Fortify Your <span className="highlight-text">Cloud Infrastructure?</span>
           </h2>
           <p className="contact-desc">
-            Speak with an AegisNode defense architect, schedule a deep architecture review, 
+            Speak with a NexShield defense architect, schedule a deep architecture review, 
             or initiate a zero-trust telemetry sandbox in your staging environment.
           </p>
 
           <div className="contact-details-row font-mono">
             <div className="contact-detail-pill">
               <span className="detail-icon">✉</span>
-              <span>security@aegisnode.demo</span>
+              <span>security@nexshield.demo</span>
             </div>
             <div className="contact-detail-pill">
               <span className="detail-icon">📍</span>

@@ -34,7 +34,7 @@ export default function Navbar({ onScrollToSection, onTriggerSimulation }) {
             </svg>
           </div>
           <span className="brand-name">
-            AEGIS<span className="brand-highlight">NODE</span>
+            NEX<span className="brand-highlight">SHIELD</span>
           </span>
           <span className="brand-badge">SEC-OPS</span>
         </a>

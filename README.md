@@ -1,4 +1,4 @@
-# AegisNode &mdash; Interactive Cybersecurity Hero Webpage
+# NexShield &mdash; Next-Gen Cybersecurity Webpage
 
 An enterprise-grade, modern cybersecurity landing page demo built with **React** and **Vite**. Features an original animated SVG node network mesh, interactive threat telemetry, live simulation states, and high-performance vanilla CSS aesthetics.
 

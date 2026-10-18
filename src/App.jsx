@@ -136,7 +136,7 @@ export default function App() {
         onTriggerSimulation={handleTriggerSimulation}
       />
 
-      {/* About AegisNode Section */}
+      {/* About NexShield Section */}
       <AboutSection />
 
       {/* Contact & Inquiries Section */}
@@ -150,7 +150,7 @@ export default function App() {
       <footer className="app-footer">
         <div className="container footer-content">
           <div className="footer-brand font-mono">
-            AEGISNODE <span>// ZERO-TRUST AUTONOMOUS TELEMETRY</span>
+            NEXSHIELD <span>// ZERO-TRUST AUTONOMOUS TELEMETRY</span>
           </div>
           <div className="footer-note">
             Autonomous Cloud Defense &bull; Next-Gen Security Intelligence.
