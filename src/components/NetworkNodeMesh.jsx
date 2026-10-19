@@ -74,22 +74,13 @@ export default function NetworkNodeMesh({
 
             return (
               <g key={`${edge.source}-${edge.target}-${idx}`}>
-                {/* Background base wire */}
+                {/* Static base wire */}
                 <line
                   x1={src.cx}
                   y1={src.cy}
                   x2={tgt.cx}
                   y2={tgt.cy}
                   className={`edge-wire ${isAttacked ? 'wire-threat' : ''}`}
-                />
-                {/* Animated traveling data particle */}
-                <line
-                  x1={src.cx}
-                  y1={src.cy}
-                  x2={tgt.cx}
-                  y2={tgt.cy}
-                  className={`edge-particle ${isAttacked ? 'particle-threat' : ''}`}
-                  strokeDasharray="6, 120"
                 />
               </g>
             );
@@ -123,16 +114,6 @@ export default function NetworkNodeMesh({
                   }
                 }}
               >
-                {/* Outer Pulse Wave for selected or alert node */}
-                {(isSelected || isCritical) && (
-                  <circle
-                    cx={node.cx}
-                    cy={node.cy}
-                    r={node.radius + 12}
-                    className={`node-pulse ${isCritical ? 'pulse-critical' : 'pulse-selected'}`}
-                  />
-                )}
-
                 {/* Ambient Halo */}
                 <circle
                   cx={node.cx}
