@@ -129,5 +129,29 @@ export const CAPABILITIES = [
     description: 'Continuous Bayesian behavioral anomaly scoring across workforce endpoints. Instantly constrains credential blast radius the exact moment abnormal telemetry surfaces.',
     metrics: '99.98% Anomaly Catch Rate',
     badge: 'Continuous Verification'
+  },
+  {
+    id: 'cap-4',
+    code: 'FABRIC-04',
+    title: 'Cloud Workload Micro-Segmentation',
+    description: 'Granular process-level policy controls for containers and Kubernetes clusters, preventing lateral adversary traversal across distributed multi-cloud nodes.',
+    metrics: 'Zero-Trust Pod Isolation',
+    badge: 'Kube-Native eBPF'
+  },
+  {
+    id: 'cap-5',
+    code: 'DECEPT-05',
+    title: 'Autonomous Honeynet Deception',
+    description: 'Dynamic decoy tokens, synthetic secrets, and breadcrumb microservices that lure advanced persistent threats into high-interaction forensic honeypots.',
+    metrics: 'Immediate Intruder Baiting',
+    badge: 'Active Defense'
+  },
+  {
+    id: 'cap-6',
+    code: 'GATE-06',
+    title: 'API Sentinel & Protocol Inspection',
+    description: 'Deep GraphQL, REST, and gRPC payload sanitization that neutralizes broken object-level authorization (BOLA) and injection attacks in real time.',
+    metrics: '100% Schema Conformance',
+    badge: 'L7 Deep Inspection'
   }
 ];

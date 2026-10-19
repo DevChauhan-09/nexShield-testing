@@ -1,0 +1,282 @@
+/* ==========================================================================
+   TrustedByMarquee Component Styles
+   Theme: Distinct Muted Indigo/Slate Background & Floating Panel Structure
+   ========================================================================== */
+
+/* Outer Section: Soft, Muted Blue / Medium-Light Ice-Blue Cybersecurity Gradient */
+.trusted-by-section {
+  padding: 2.25rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+  /* Medium-light ice-blue & soft muted steel-blue gradient: light but never overly bright/white */
+  background: 
+    radial-gradient(circle 800px at 50% 50%, rgba(186, 230, 253, 0.45) 0%, rgba(147, 197, 253, 0.3) 50%, rgba(125, 211, 252, 0.25) 100%),
+    linear-gradient(180deg, #1e3a5f 0%, #162b48 50%, #1c3656 100%);
+  border-top: 1px solid rgba(56, 189, 248, 0.35);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: inset 0 2px 16px rgba(3, 16, 38, 0.3);
+  z-index: 2;
+}
+
+.trusted-by-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* -------------------------------------------------------------
+   Popup-Like Floating Trust Panel
+   Elevated, rounded rectangular cybersecurity dashboard container
+   Restored deep navy / dark blue gradient with subtle cyan accents
+   ------------------------------------------------------------- */
+.trusted-floating-panel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(155deg, rgba(10, 22, 50, 0.94) 0%, rgba(6, 15, 36, 0.97) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  border-radius: 26px;
+  padding: 1.6rem 2rem 1.85rem;
+  box-shadow: 
+    0 24px 50px -12px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(0, 242, 254, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.trusted-floating-panel:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 
+    0 28px 60px -10px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(0, 242, 254, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Interior ambient glow aura */
+.panel-glow-aura {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 120px;
+  background: radial-gradient(ellipse at center, rgba(0, 242, 254, 0.16) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 80%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top header bar within floating panel */
+.trusted-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.panel-status-blip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan-primary);
+  box-shadow: 0 0 8px var(--cyan-primary);
+  display: inline-block;
+}
+
+.trusted-by-heading {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.panel-status-tag {
+  font-size: 0.64rem;
+  color: var(--cyan-primary);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.22);
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  letter-spacing: 0.06em;
+}
+
+/* -------------------------------------------------------------
+   Marquee Viewport with Edge Fade Masks
+   ------------------------------------------------------------- */
+.trusted-marquee-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Continuous scrolling track */
+.trusted-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logoMarqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.trusted-floating-panel:hover .trusted-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Individual group of logos (rendered twice for seamless loop) */
+.trusted-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+  padding: 0 1.35rem;
+}
+
+/* Individual logo pill/item on dark panel */
+.trusted-logo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 9999px;
+  background: rgba(6, 14, 34, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: var(--text-ice);
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.trusted-logo-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--cyan-primary);
+  color: var(--cyan-primary);
+  transition: all 0.22s ease;
+  flex-shrink: 0;
+}
+
+.trusted-logo-name {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-ice);
+  transition: all 0.22s ease;
+}
+
+/* Noticeably Much Lighter, Brighter Hover State */
+.trusted-logo-item:hover,
+.trusted-logo-item:focus-visible {
+  background: #cffafe;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 24px rgba(0, 242, 254, 0.6);
+}
+
+.trusted-logo-item:hover .trusted-logo-icon,
+.trusted-logo-item:focus-visible .trusted-logo-icon {
+  stroke: #0284c7;
+  color: #0284c7;
+  filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.5));
+}
+
+.trusted-logo-item:hover .trusted-logo-name,
+.trusted-logo-item:focus-visible .trusted-logo-name {
+  color: #031e42;
+  font-weight: 700;
+}
+
+/* Keyframes for seamless infinite marquee scroll */
+@keyframes logoMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect user's reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .trusted-marquee-track {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .trusted-floating-panel {
+    padding: 1.15rem 1.25rem 1.35rem;
+    border-radius: 20px;
+  }
+  
+  .trusted-logo-group {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .trusted-by-section {
+    padding: 1.75rem 0 2rem;
+  }
+
+  .trusted-floating-panel {
+    padding: 1rem 0.85rem 1.25rem;
+    border-radius: 16px;
+    gap: 0.9rem;
+  }
+
+  .trusted-panel-header {
+    flex-wrap: wrap;
+  }
+
+  .trusted-logo-group {
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .trusted-logo-item {
+    padding: 0.4rem 0.85rem;
+  }
+
+  .trusted-logo-name {
+    font-size: 0.78rem;
+  }
+
+  .trusted-logo-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

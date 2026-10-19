@@ -1,10 +1,19 @@
 .capabilities-section {
-  padding: 6.5rem 0 5.5rem;
+  padding: 6.5rem 0 6rem;
   position: relative;
   overflow: hidden;
-  background: 
-    radial-gradient(ellipse 80% 50% at 50% 10%, rgba(14, 116, 144, 0.12) 0%, transparent 70%),
-    linear-gradient(180deg, #030a1c 0%, #061533 50%, #051433 100%);
+  /* Restored Cyber Defence Solutions background with /images/cyber-defence-bg.png */
+  background-color: #030c22;
+  background-image: 
+    linear-gradient(180deg, rgba(2, 8, 22, 0.72) 0%, rgba(4, 16, 40, 0.65) 50%, rgba(2, 7, 20, 0.78) 100%),
+    radial-gradient(ellipse 70% 60% at 50% 30%, rgba(0, 242, 254, 0.08) 0%, transparent 75%),
+    url('/images/cyber-defence-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 /* Subtle, seamless transition divider between sections (no harsh borders) */
@@ -17,11 +26,12 @@
   background: linear-gradient(
     90deg, 
     transparent 0%, 
-    rgba(56, 189, 248, 0.08) 15%, 
-    rgba(0, 242, 254, 0.28) 50%, 
-    rgba(56, 189, 248, 0.08) 85%, 
+    rgba(56, 189, 248, 0.1) 15%, 
+    rgba(0, 242, 254, 0.35) 50%, 
+    rgba(56, 189, 248, 0.1) 85%, 
     transparent 100%
   );
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.25);
   pointer-events: none;
 }
 
@@ -65,26 +75,117 @@
   line-height: 1.6;
 }
 
-/* 3-Col Grid */
-.capabilities-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+/* Horizontal Animated Carousel Layout */
+.capabilities-carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
 }
 
+/* Nav prev/next floating buttons */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(8, 22, 52, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--cyan-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 242, 254, 0.25);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-nav-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-nav-btn:hover:not(:disabled) {
+  background: #cffafe;
+  border-color: #38bdf8;
+  color: #031e42;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 242, 254, 0.6);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-dim);
+}
+
+.carousel-nav-prev {
+  left: -22px;
+}
+
+.carousel-nav-next {
+  right: -22px;
+}
+
+.carousel-nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Viewport with smooth horizontal scroll and touch-swiping */
+.capabilities-carousel-viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide default scrollbar on Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0.25rem 1rem;
+}
+
+.capabilities-carousel-viewport::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on Chrome/Safari */
+}
+
+/* Track containing cards in a single horizontal row */
+.capabilities-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  width: max-content;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Card Styling in Carousel */
 .capability-card {
-  background: linear-gradient(145deg, rgba(12, 32, 68, 0.65) 0%, rgba(8, 22, 48, 0.8) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  border-radius: 20px;
-  padding: 2.25rem 1.85rem;
+  width: 380px;
+  flex: 0 0 380px;
+  background: linear-gradient(150deg, rgba(10, 24, 52, 0.78) 0%, rgba(6, 16, 38, 0.88) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
+  justify-content: space-between;
+  min-height: 270px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.65), 0 0 18px rgba(0, 242, 254, 0.08);
 }
 
 .capability-card::before {
@@ -96,117 +197,245 @@
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--cyan-primary), transparent);
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity 0.25s ease;
 }
 
-.capability-card:hover,
-.capability-card.active-card {
-  transform: translateY(-6px);
-  border-color: #38bdf8;
-  background: linear-gradient(150deg, rgba(22, 60, 125, 0.95) 0%, rgba(14, 38, 85, 0.98) 100%);
-  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 242, 254, 0.35);
+/* Noticeably Much Lighter Hover State (Ice Blue / Pale Cyan) — ONLY on hover */
+.capability-card:hover {
+  transform: translateY(-4px);
+  border-color: #a5f3fc;
+  background: linear-gradient(150deg, #dbeafe 0%, #cffafe 60%, #e0f2fe 100%);
+  box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.5), 0 0 35px rgba(165, 243, 252, 0.65);
 }
 
-.capability-card:hover::before,
-.capability-card.active-card::before {
+.capability-card:hover::before {
   opacity: 1;
+  background: linear-gradient(90deg, transparent, #0284c7, transparent);
 }
 
 .cap-top-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 .cap-code {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-dim);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  transition: color 0.22s ease;
+}
+
+.capability-card:hover .cap-code {
+  color: #0369a1;
+  font-weight: 700;
 }
 
 .cap-badge {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--cyan-primary);
   background: rgba(0, 242, 254, 0.1);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  transition: all 0.22s ease;
+}
+
+.capability-card:hover .cap-badge {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0369a1;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
 }
 
 .cap-icon-box {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   background: rgba(0, 242, 254, 0.08);
   border: 1px solid rgba(0, 242, 254, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--cyan-primary);
-  transition: all var(--transition-fast);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
 .capability-card:hover .cap-icon-box,
 .capability-card.active-card .cap-icon-box {
-  background: rgba(0, 242, 254, 0.16);
-  border-color: var(--cyan-primary);
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  background: #0284c7;
+  border-color: #0369a1;
+  color: #ffffff;
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 0 18px rgba(2, 132, 199, 0.4);
 }
 
 .cap-svg {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
+  transition: transform 0.25s ease;
+}
+
+.capability-card:hover .cap-svg {
+  transform: scale(1.05);
 }
 
 .cap-title {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.6rem;
   line-height: 1.3;
+  transition: color 0.22s ease;
+}
+
+.capability-card:hover .cap-title {
+  color: #031e42;
 }
 
 .cap-desc {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
   flex: 1;
+  transition: color 0.22s ease;
+}
+
+.capability-card:hover .cap-desc {
+  color: #1e293b;
 }
 
 .cap-metrics-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.22s ease;
+}
+
+.capability-card:hover .cap-metrics-footer {
+  border-top-color: rgba(2, 132, 199, 0.25);
 }
 
 .metric-callout {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--cyan-primary);
   font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.22s ease;
+}
+
+.capability-card:hover .metric-callout {
+  color: #0369a1;
+  font-weight: 700;
 }
 
 .interactive-arrow {
   color: var(--text-dim);
-  font-size: 1.2rem;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  font-size: 1.15rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
 .capability-card:hover .interactive-arrow,
 .capability-card.active-card .interactive-arrow {
-  color: var(--cyan-primary);
+  color: #0284c7;
   transform: translateX(4px);
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .capabilities-grid {
-    grid-template-columns: 1fr;
-    max-width: 600px;
-    margin: 0 auto;
+
+
+/* Responsive Carousel Adjustments */
+@media (max-width: 1040px) {
+  .capability-card {
+    width: 340px;
+    flex: 0 0 340px;
+  }
+  .carousel-nav-prev {
+    left: -12px;
+  }
+  .carousel-nav-next {
+    right: -12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .capabilities-section {
+    padding: 4.5rem 0 4rem;
+    background-position: center top;
+  }
+
+  .capabilities-carousel-viewport {
+    padding: 0.5rem 0 0.75rem;
+    /* Native smooth momentum scrolling on touch devices */
+    scroll-snap-type: x mandatory;
+  }
+
+  .capability-card {
+    width: 82vw;
+    max-width: 340px;
+    flex: 0 0 82vw;
+    scroll-snap-align: center;
+    padding: 1.4rem 1.25rem;
+    min-height: auto;
+  }
+
+  .carousel-nav-btn {
+    display: none; /* Mobile users swipe naturally */
+  }
+}
+
+@media (max-width: 480px) {
+  .capabilities-section {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .capability-card {
+    width: 86vw;
+    flex: 0 0 86vw;
+    padding: 1.25rem 1.1rem;
+  }
+
+  .cap-title {
+    font-size: 1.05rem;
+  }
+
+  .cap-desc {
+    font-size: 0.84rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .capabilities-toggle-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .capability-card,
+  .cap-icon-box,
+  .interactive-arrow,
+  .toggle-chevron-svg,
+  .carousel-card-extra,
+  .capabilities-carousel-viewport {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }

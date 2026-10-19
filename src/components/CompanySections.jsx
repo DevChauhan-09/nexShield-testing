@@ -1,18 +1,15 @@
 import React from 'react';
-import useScrollReveal from '../hooks/useScrollReveal';
+import useSectionTransition from '../hooks/useSectionTransition';
 import './CompanySections.css';
 
 export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation }) {
-  const sectionRef = useScrollReveal({ threshold: 0.1 });
-  const card1Ref = useScrollReveal({ threshold: 0.15 });
-  const card2Ref = useScrollReveal({ threshold: 0.15 });
-  const card3Ref = useScrollReveal({ threshold: 0.15 });
+  const [sectionRef] = useSectionTransition({ threshold: 0.1 });
 
   return (
-    <section className="company-section platform-section" id="platform">
+    <section ref={sectionRef} className="company-section platform-section section-scroll-transition" id="platform">
       <div className="section-transition-top" aria-hidden="true" />
       <div className="container">
-        <div ref={sectionRef} className="section-header reveal-on-scroll">
+        <div className="section-header reveal-on-scroll">
           <div className="section-badge font-mono">PLATFORM ARCHITECTURE</div>
           <h2 className="section-title">
             The <span className="highlight-text">NexShield Telemetry Mesh</span>
@@ -24,7 +21,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
         </div>
 
         <div className="platform-grid">
-          <div ref={card1Ref} className="platform-card reveal-on-scroll">
+          <div className="platform-card reveal-on-scroll">
             <div className="platform-step-num font-mono">01</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -41,7 +38,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
             <div className="platform-card-meta font-mono">Sub-millisecond packet telemetry</div>
           </div>
 
-          <div ref={card2Ref} className="platform-card reveal-on-scroll reveal-delay-1">
+          <div className="platform-card reveal-on-scroll reveal-delay-1">
             <div className="platform-step-num font-mono">02</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +53,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
             <div className="platform-card-meta font-mono">Dynamic node topology &amp; indicators</div>
           </div>
 
-          <div ref={card3Ref} className="platform-card reveal-on-scroll reveal-delay-2">
+          <div className="platform-card reveal-on-scroll reveal-delay-2">
             <div className="platform-step-num font-mono">03</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,7 +70,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
           </div>
         </div>
 
-        <div className="platform-cta-banner">
+        <div className="platform-cta-banner reveal-on-scroll reveal-delay-3">
           <div className="platform-banner-text">
             <h4>Explore NexShield Enterprise Capabilities</h4>
             <p>Deploy kernel-level observability, quantum-safe cryptosystems, and automated perimeter micro-isolation.</p>
@@ -101,13 +98,13 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
 }
 
 export function ContactSection({ onContactAction }) {
-  const contactBoxRef = useScrollReveal({ threshold: 0.15 });
+  const [sectionRef] = useSectionTransition({ threshold: 0.1 });
 
   return (
-    <section className="company-section contact-section" id="contact">
+    <section ref={sectionRef} className="company-section contact-section section-scroll-transition" id="contact">
       <div className="section-transition-top" aria-hidden="true" />
       <div className="container">
-        <div ref={contactBoxRef} className="contact-box reveal-on-scroll">
+        <div className="contact-box reveal-on-scroll">
           <div className="contact-glow-circle"></div>
           
           <div className="section-badge font-mono">ENTERPRISE INQUIRIES</div>

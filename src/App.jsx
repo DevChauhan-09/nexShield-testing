@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroLeft from './components/HeroLeft';
 import AboutSection from './components/AboutSection';
+import TrustedByMarquee from './components/TrustedByMarquee';
 import CapabilitiesSection from './components/CapabilitiesSection';
 import PlatformSection, { ContactSection } from './components/CompanySections';
+import Footer from './components/Footer';
 import { CAPABILITIES } from './data/cyberData';
 import './App.css';
 
@@ -79,6 +81,9 @@ export default function App() {
         }}
       />
 
+      {/* Trusted By Logo Marquee — Placed immediately below About Us */}
+      <TrustedByMarquee />
+
       {/* Solutions Section (3 Cybersecurity Capabilities) */}
       <CapabilitiesSection
         capabilities={CAPABILITIES}
@@ -100,17 +105,8 @@ export default function App() {
         }}
       />
 
-      {/* Simple Footer */}
-      <footer className="app-footer">
-        <div className="container footer-content">
-          <div className="footer-brand font-mono">
-            NEXSHIELD <span>// ZERO-TRUST AUTONOMOUS TELEMETRY</span>
-          </div>
-          <div className="footer-note">
-            Autonomous Cloud Defense &bull; Next-Gen Security Intelligence.
-          </div>
-        </div>
-      </footer>
+      {/* Professional Multi-Column Website Footer */}
+      <Footer onScrollToSection={handleScrollToSection} />
 
       {/* Toast Alert Notification */}
       {toastMessage && (

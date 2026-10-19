@@ -153,18 +153,20 @@
 
 .nav-category-trigger:hover,
 .nav-category-trigger:focus-visible {
-  color: #ffffff;
-  background: rgba(14, 52, 115, 0.85);
-  border-color: rgba(56, 189, 248, 0.55);
-  box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+  color: #031e42;
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 242, 254, 0.45);
   transform: translateY(-1px);
 }
 
 .nav-category-trigger.active {
-  color: #ffffff;
-  background: rgba(0, 242, 254, 0.25);
-  border-color: rgba(0, 242, 254, 0.6);
-  box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+  color: #031e42;
+  background: #cffafe;
+  border-color: #00f2fe;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 242, 254, 0.5);
 }
 
 .nav-chevron-icon {
@@ -216,10 +218,11 @@
 
 .nav-btn-signin:hover,
 .nav-btn-signin:focus-visible {
-  color: #ffffff;
-  background: rgba(14, 52, 115, 0.85);
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 14px rgba(0, 242, 254, 0.3);
+  color: #031e42;
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 242, 254, 0.4);
   transform: translateY(-1px);
 }
 
@@ -246,10 +249,11 @@
 .nav-btn-globe:hover,
 .nav-btn-globe:focus-visible,
 .nav-btn-globe.active {
-  color: #ffffff;
-  background: rgba(22, 70, 145, 0.95);
+  color: #031e42;
+  background: #cffafe;
   border-color: #38bdf8;
-  box-shadow: 0 0 18px rgba(0, 242, 254, 0.4);
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(0, 242, 254, 0.55);
   transform: translateY(-1px);
 }
 
@@ -306,10 +310,12 @@
 
 .lang-option-btn:hover,
 .lang-option-btn:focus-visible {
-  color: #fff;
-  background: rgba(14, 38, 78, 0.65);
-  border-color: rgba(56, 189, 248, 0.3);
+  color: #031e42;
+  background: #e0f2fe;
+  border-color: #38bdf8;
+  font-weight: 600;
   transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.35);
 }
 
 .lang-option-btn.selected {
@@ -507,10 +513,10 @@
 
 .dropdown-menu-item-link:hover,
 .dropdown-menu-item-link:focus-visible {
-  background: rgba(14, 38, 78, 0.55);
-  border-color: rgba(56, 189, 248, 0.3);
+  background: #e0f2fe;
+  border-color: #38bdf8;
   transform: translateX(3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 242, 254, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 18px rgba(0, 242, 254, 0.4);
 }
 
 .item-title {
@@ -523,13 +529,20 @@
 
 .dropdown-menu-item-link:hover .item-title,
 .dropdown-menu-item-link:focus-visible .item-title {
-  color: var(--cyan-primary);
+  color: #031e42;
+  font-weight: 700;
 }
 
 .item-desc {
   color: var(--text-muted);
   font-size: 0.78rem;
   line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.dropdown-menu-item-link:hover .item-desc,
+.dropdown-menu-item-link:focus-visible .item-desc {
+  color: #1e293b;
 }
 
 /* Right Featured Card in Dropdown */
@@ -660,7 +673,8 @@
 }
 
 .mobile-cat-header-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: #e0f2fe;
+  color: #031e42;
 }
 
 .mobile-chevron {
@@ -688,11 +702,20 @@
   text-decoration: none;
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .mobile-subitem-link:hover {
-  background: rgba(0, 242, 254, 0.08);
+  background: #cffafe;
+}
+
+.mobile-subitem-link:hover .subitem-name {
+  color: #031e42;
+  font-weight: 700;
+}
+
+.mobile-subitem-link:hover .subitem-desc {
+  color: #1e293b;
 }
 
 .subitem-name {

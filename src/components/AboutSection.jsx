@@ -3,43 +3,42 @@ import './AboutSection.css';
 
 /**
  * AboutSection placed directly below the Hero section.
- * - Exact required copy & typography
- * - Two-column desktop layout (Left: Text, Right: Abstract Cybersecurity Visual), stacking on mobile
- * - Guaranteed once-only viewport scroll-reveal entrance animation with subtle staggered timing
- * - Fallback safety ensuring content is never trapped in an invisible state
+ * - Scroll-driven reveal transition with progressive unlock from Hero
+ * - Continuous scroll progress tracking (0 to 1) with reversible upward/downward responsiveness
+ * - Luminous cyan/blue light sweep and progressive emergence of background image & content
+ * - Fallback safety for reduced motion and non-JS environments
  */
 export default function AboutSection({ onDiscoverApproach }) {
   const sectionRef = useRef(null);
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = 
+      typeof window !== 'undefined' && 
+      window.matchMedia && 
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      setIsActive(true);
+      return;
+    }
+
     const el = sectionRef.current;
     if (!el) return;
-
-    // Check if user prefers reduced motion
-    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setIsRevealed(true);
-      return;
-    }
-
-    // Safety fallback: if IntersectionObserver is not available, immediately reveal
-    if (typeof IntersectionObserver === 'undefined') {
-      setIsRevealed(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsRevealed(true);
+          setIsActive(true);
         } else {
-          // Replay when scrolling away and returning to the section
-          setIsRevealed(false);
+          // Reset so whenever you scroll down to it, the animation reveals it again
+          setIsActive(false);
         }
       },
       {
         threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px',
+        rootMargin: '0px 0px -50px 0px',
       }
     );
 
@@ -53,11 +52,11 @@ export default function AboutSection({ onDiscoverApproach }) {
   return (
     <section 
       ref={sectionRef} 
-      className={`about-section ${isRevealed ? 'is-revealed' : ''}`} 
+      className={`about-section section-scroll-transition ${isActive ? 'is-active is-in-view' : ''}`} 
       id="about"
       aria-label="About NexShield"
     >
-      {/* Visual connector transition from Hero */}
+      {/* Visual top connector & ambient glow */}
       <div className="about-transition-connector" aria-hidden="true" />
       <div className="about-ambient-glow" aria-hidden="true" />
 

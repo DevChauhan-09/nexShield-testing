@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Footer Component Styles
+   Theme: Enterprise Cyber Defense (Deep Navy, Thin Cyan Border, Light Glows)
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  background: 
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 242, 254, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #030816 0%, #020612 50%, #01040d 100%);
+  border-top: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 4rem 0 2rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Subtle top luminous divider matching site aesthetics */
+.footer-top-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(56, 189, 248, 0.1) 15%, 
+    rgba(0, 242, 254, 0.4) 50%, 
+    rgba(56, 189, 248, 0.1) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.3);
+  pointer-events: none;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Responsive 4-Column Grid */
+.footer-columns-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Column 1: Brand */
+.footer-col-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  max-width: 360px;
+}
+
+.footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-brand-link:hover {
+  transform: translateY(-1px);
+}
+
+.footer-brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(14, 45, 96, 0.4) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.2);
+  transition: all 0.22s ease;
+}
+
+.footer-brand-link:hover .footer-brand-icon {
+  background: #cffafe;
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+}
+
+.footer-shield-svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--cyan-primary);
+  transition: stroke 0.22s ease;
+}
+
+.footer-brand-link:hover .footer-shield-svg {
+  stroke: #0284c7;
+}
+
+.footer-brand-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.footer-brand-accent {
+  color: var(--cyan-primary);
+  text-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--cyan-primary);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.footer-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00f2fe;
+  box-shadow: 0 0 8px #00f2fe;
+}
+
+/* Columns 2, 3, 4: Column Titles & Links */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan-primary);
+  margin-bottom: 1.25rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  width: fit-content;
+  display: inline-block;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Noticeably Much Lighter, Brighter Hover State */
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: #031e42;
+  background: #cffafe;
+  font-weight: 600;
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.35);
+  outline: none;
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid var(--cyan-primary);
+  outline-offset: 2px;
+}
+
+/* Bottom Bar: Copyright & Security Note */
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.footer-bottom-meta {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ---------------- Responsive Breakpoints ---------------- */
+@media (max-width: 1040px) {
+  .footer-columns-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.25rem;
+  }
+  .footer-col-brand {
+    grid-column: span 3;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-footer {
+    padding: 3rem 0 2rem;
+  }
+  .footer-columns-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-col-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 2.5rem 0 1.75rem;
+  }
+  .footer-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 1.85rem;
+  }
+  .footer-col-brand {
+    grid-column: span 1;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .footer-link,
+  .footer-brand-link,
+  .footer-brand-icon {
+    transition: none !important;
+    transform: none !important;
+  }
+}

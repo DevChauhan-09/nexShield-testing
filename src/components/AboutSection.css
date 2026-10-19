@@ -20,9 +20,31 @@
   color: var(--text-main);
   border-top: 1px solid rgba(56, 189, 248, 0.22);
   border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Subtle top transition connector from Hero */
+/* Scroll-driven luminous cyan/blue light sweep at Hero-to-About boundary */
+.about-light-sweep {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    rgba(0, 242, 254, calc(var(--reveal-progress, 0) * 0.28)) 0%,
+    rgba(14, 165, 233, calc(var(--reveal-progress, 0) * 0.16)) 40%,
+    transparent 75%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: calc(var(--reveal-progress, 0) * 1.2);
+  transform: translateY(calc((1 - var(--reveal-progress, 0)) * -30px));
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+}
+
+/* Subtle top transition connector from Hero with luminous bloom based on scroll */
 .about-transition-connector {
   position: absolute;
   top: 0;
@@ -32,13 +54,14 @@
   background: linear-gradient(
     90deg, 
     transparent 0%, 
-    rgba(56, 189, 248, 0.1) 15%, 
-    rgba(0, 242, 254, 0.5) 50%, 
-    rgba(56, 189, 248, 0.1) 85%, 
+    rgba(56, 189, 248, calc(0.1 + var(--reveal-progress, 0) * 0.2)) 15%, 
+    rgba(0, 242, 254, calc(0.4 + var(--reveal-progress, 0) * 0.5)) 50%, 
+    rgba(56, 189, 248, calc(0.1 + var(--reveal-progress, 0) * 0.2)) 85%, 
     transparent 100%
   );
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  box-shadow: 0 0 calc(10px + var(--reveal-progress, 0) * 20px) rgba(0, 242, 254, calc(0.2 + var(--reveal-progress, 0) * 0.4));
   pointer-events: none;
+  z-index: 3;
 }
 
 /* Subtle ambient background glow */
@@ -270,50 +293,54 @@
 }
 
 /* ==========================================================================
-   Precise Scroll-Triggered Stagger Animations for About Us
-   Smooth 750ms-850ms reveal with 20px subtle initial offset
-   Replays gracefully when scrolling away and returning
+   Smooth Scroll Entrance Animation for About Us Block
+   Triggers whenever user scrolls down into the About Us section
+   Replays gracefully when user scrolls away and returns
    ========================================================================== */
 .about-reveal-item {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-/* Revealed state (attached by observer when in viewport) */
-.about-section.is-revealed .about-reveal-item {
+/* When in view: smooth, progressive, staggered reveal */
+.about-section.is-active .about-reveal-item {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Staggered timing sequence */
-.about-section.is-revealed .delay-eyebrow {
-  transition-delay: 0.04s;
+.about-section.is-active .delay-eyebrow {
+  transition-delay: 0.05s;
 }
 
-.about-section.is-revealed .delay-headline {
-  transition-delay: 0.16s;
+.about-section.is-active .delay-headline {
+  transition-delay: 0.18s;
 }
 
-.about-section.is-revealed .delay-desc {
-  transition-delay: 0.28s;
+.about-section.is-active .delay-desc {
+  transition-delay: 0.30s;
 }
 
-.about-section.is-revealed .delay-btn {
-  transition-delay: 0.40s;
+.about-section.is-active .delay-btn {
+  transition-delay: 0.42s;
 }
 
-.about-section.is-revealed .delay-visual {
+.about-section.is-active .delay-visual {
   transition-delay: 0.22s;
 }
 
-/* Safety Fallback: If JavaScript is disabled or IntersectionObserver is not supported,
-   content must never remain invisible */
-@supports not (intersection-observer: none) {
+/* Card subtle glow pulse on reveal */
+.about-section.is-active .about-visual-card {
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.2);
+}
+
+/* Safety Fallback: If user prefers reduced motion or no JS */
+@media (prefers-reduced-motion: reduce) {
   .about-reveal-item {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 }
 

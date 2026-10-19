@@ -27,11 +27,21 @@
   pointer-events: none;
 }
 
-/* ---------------- Platform Section (Deep Ocean / Steel Blue Tones) ---------------- */
+/* ---------------- Platform Architecture Section ---------------- */
 .platform-section {
-  background: 
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(14, 52, 108, 0.22) 0%, transparent 75%),
-    linear-gradient(180deg, #051433 0%, #08214f 55%, #051330 100%);
+  position: relative;
+  overflow: hidden;
+  background-color: #04102b;
+  background-image: 
+    linear-gradient(180deg, rgba(3, 10, 28, 0.76) 0%, rgba(5, 18, 48, 0.68) 50%, rgba(3, 9, 25, 0.82) 100%),
+    radial-gradient(ellipse 80% 65% at 50% 30%, rgba(0, 242, 254, 0.09) 0%, transparent 75%),
+    url('/images/platform-architecture-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .platform-grid {
@@ -42,23 +52,50 @@
 }
 
 .platform-card {
-  background: linear-gradient(155deg, rgba(14, 38, 80, 0.65) 0%, rgba(8, 22, 48, 0.8) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: linear-gradient(155deg, rgba(22, 54, 108, 0.72) 0%, rgba(14, 34, 72, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.32);
   border-radius: 20px;
   padding: 2.25rem 1.85rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 242, 254, 0.08);
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .platform-card:hover {
   transform: translateY(-4px);
-  border-color: #38bdf8;
-  background: linear-gradient(155deg, rgba(22, 60, 128, 0.92) 0%, rgba(14, 40, 88, 0.95) 100%);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.35);
+  border-color: #a5f3fc;
+  background: linear-gradient(150deg, #dbeafe 0%, #cffafe 60%, #e0f2fe 100%);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.45), 0 0 35px rgba(165, 243, 252, 0.65);
+}
+
+.platform-card:hover .platform-card-title {
+  color: #031e42;
+}
+
+.platform-card:hover .platform-card-desc {
+  color: #1e293b;
+}
+
+.platform-card:hover .platform-step-num {
+  color: #0284c7;
+  opacity: 1;
+}
+
+.platform-card:hover .platform-card-icon {
+  background: #0284c7;
+  border-color: #0369a1;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.4);
+}
+
+.platform-card:hover .platform-card-meta {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0369a1;
 }
 
 .platform-step-num {
@@ -116,17 +153,17 @@
 
 /* Platform Banner */
 .platform-cta-banner {
-  background: rgba(10, 24, 52, 0.72);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: linear-gradient(150deg, rgba(16, 38, 80, 0.8) 0%, rgba(10, 26, 58, 0.88) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.32);
   border-radius: 20px;
   padding: 2rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 242, 254, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .platform-banner-text h4 {
@@ -147,17 +184,27 @@
   flex-shrink: 0;
 }
 
-/* ---------------- Contact Section ---------------- */
+/* ---------------- Enterprise Inquiries / Contact Section ---------------- */
 .contact-section {
-  background: 
-    radial-gradient(circle at 50% 100%, rgba(14, 45, 96, 0.35) 0%, transparent 65%),
-    linear-gradient(180deg, #041026 0%, #030a1c 60%, #020612 100%);
+  position: relative;
+  overflow: hidden;
+  background-color: #030a1c;
+  background-image: 
+    linear-gradient(180deg, rgba(3, 10, 28, 0.78) 0%, rgba(5, 16, 44, 0.72) 50%, rgba(2, 6, 18, 0.85) 100%),
+    radial-gradient(ellipse 75% 60% at 50% 100%, rgba(0, 242, 254, 0.08) 0%, transparent 70%),
+    url('/images/enterprise-inquiries-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   padding: 6.5rem 0 5.5rem;
 }
 
 .contact-box {
-  background: linear-gradient(145deg, rgba(10, 24, 52, 0.78) 0%, rgba(6, 14, 32, 0.88) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: linear-gradient(150deg, rgba(16, 38, 80, 0.84) 0%, rgba(9, 22, 50, 0.92) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 28px;
   padding: 3.5rem 2.5rem;
   text-align: center;
@@ -165,9 +212,9 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .contact-glow-circle {
@@ -213,10 +260,11 @@
 }
 
 .contact-detail-pill:hover {
-  background: rgba(14, 45, 96, 0.85);
+  background: #e0f2fe;
   border-color: #38bdf8;
-  color: #ffffff;
-  box-shadow: 0 0 16px rgba(0, 242, 254, 0.3);
+  color: #031e42;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(0, 242, 254, 0.45);
   transform: translateY(-1px);
 }
 
