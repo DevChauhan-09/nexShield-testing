@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroLeft from './components/HeroLeft';
+import AboutSection from './components/AboutSection';
 import CapabilitiesSection from './components/CapabilitiesSection';
-import PlatformSection, { AboutSection, ContactSection } from './components/CompanySections';
+import PlatformSection, { ContactSection } from './components/CompanySections';
 import { CAPABILITIES } from './data/cyberData';
 import './App.css';
 
@@ -64,11 +65,19 @@ export default function App() {
         <div className="container hero-container-static">
           {/* Headlines & Actions */}
           <HeroLeft
-            onScrollToCapabilities={() => handleScrollToSection('solutions')}
-            onExplorePlatform={() => handleScrollToSection('platform')}
+            onScrollToCapabilities={() => handleScrollToSection('about')}
+            onExplorePlatform={() => handleScrollToSection('solutions')}
           />
         </div>
       </main>
+
+      {/* About NexShield Section — Placed directly below the Hero section */}
+      <AboutSection 
+        onDiscoverApproach={() => {
+          handleScrollToSection('solutions');
+          showToast('🛡️ Exploring NexShield cyber defense methodology.');
+        }}
+      />
 
       {/* Solutions Section (3 Cybersecurity Capabilities) */}
       <CapabilitiesSection
@@ -83,9 +92,6 @@ export default function App() {
         onScrollToNetwork={() => handleScrollToSection('solutions')}
         onTriggerSimulation={() => showToast('⚡ Autonomous telemetry verification stream active.')}
       />
-
-      {/* About NexShield Section */}
-      <AboutSection />
 
       {/* Contact & Inquiries Section */}
       <ContactSection 

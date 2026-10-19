@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './CapabilitiesSection.css';
 
 export default function CapabilitiesSection({ capabilities, onCapabilitySelect }) {
   const [activeCapId, setActiveCapId] = useState(capabilities[0]?.id);
+  const headerRef = useScrollReveal({ threshold: 0.1 });
+  const gridRef = useScrollReveal({ threshold: 0.15 });
 
   return (
     <section className="capabilities-section" id="solutions">
+      <div className="section-transition-top" aria-hidden="true" />
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div ref={headerRef} className="section-header reveal-on-scroll">
           <div className="section-badge font-mono">CYBER DEFENSE SOLUTIONS</div>
           <h2 className="section-title">
             Engineered for <span className="highlight-text">Zero Compromise</span>
@@ -20,7 +24,7 @@ export default function CapabilitiesSection({ capabilities, onCapabilitySelect }
         </div>
 
         {/* 3 Capabilities Grid */}
-        <div className="capabilities-grid">
+        <div ref={gridRef} className="capabilities-grid reveal-on-scroll">
           {capabilities.map((cap) => {
             const isActive = activeCapId === cap.id;
             return (

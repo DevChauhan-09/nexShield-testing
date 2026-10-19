@@ -1,0 +1,375 @@
+/* ==========================================================================
+   AboutSection Component Styles
+   Theme: Enterprise Cyber Defense (Distinct Midnight Cobalt with Luminous Cyan Accents)
+   ========================================================================== */
+
+.about-section {
+  padding: 7rem 0;
+  min-height: 580px;
+  position: relative;
+  overflow: hidden;
+  /* Distinct complementary background directly below Hero with about-bg.png */
+  background-color: #030a1c;
+  background-image: 
+    linear-gradient(180deg, rgba(3, 10, 28, 0.45) 0%, rgba(5, 16, 42, 0.35) 50%, rgba(2, 8, 20, 0.55) 100%),
+    url('/images/about-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  color: var(--text-main);
+  border-top: 1px solid rgba(56, 189, 248, 0.22);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+}
+
+/* Subtle top transition connector from Hero */
+.about-transition-connector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(56, 189, 248, 0.1) 15%, 
+    rgba(0, 242, 254, 0.5) 50%, 
+    rgba(56, 189, 248, 0.1) 85%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  pointer-events: none;
+}
+
+/* Subtle ambient background glow */
+.about-ambient-glow {
+  position: absolute;
+  top: 20%;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(14, 116, 144, 0.15) 0%, rgba(2, 132, 199, 0.05) 50%, transparent 75%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2-Column Desktop Layout */
+.about-two-col-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Text Column (Left) */
+.about-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cyan-primary);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.28);
+  padding: 0.38rem 1rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.about-headline {
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+
+.about-headline .highlight-cyan {
+  background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 60%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-description {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 2.25rem;
+  max-width: 580px;
+}
+
+.about-action-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.85rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f2fe 0%, #0ea5e9 60%, #0284c7 100%);
+  color: #010814;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+  text-decoration: none;
+}
+
+.about-cta-btn:hover,
+.about-cta-btn:focus-visible {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 45%, #00f2fe 100%);
+  border-color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 242, 254, 0.75), 0 0 24px rgba(165, 243, 252, 0.6);
+  color: #000c1e;
+}
+
+.about-cta-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+  font-size: 1.1rem;
+}
+
+.about-cta-btn:hover .about-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Abstract Cybersecurity Visual Column (Right) */
+.about-visual-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.about-visual-card {
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(150deg, rgba(12, 30, 68, 0.65) 0%, rgba(6, 18, 44, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Top status ribbon in visual */
+.visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.visual-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--cyan-primary);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.visual-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00f2fe;
+  box-shadow: 0 0 10px #00f2fe;
+}
+
+.visual-metric-tag {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* Visual Center Hologram / Geometric Shield Rings */
+.visual-hologram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0 2rem;
+  position: relative;
+}
+
+.hologram-shield-center {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.18) 0%, rgba(14, 52, 108, 0.1) 70%);
+  border: 1px solid rgba(0, 242, 254, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan-primary);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+  margin-bottom: 1.5rem;
+}
+
+.hologram-shield-center svg {
+  width: 44px;
+  height: 44px;
+}
+
+/* Telemetry stat pills inside the visual */
+.visual-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.stat-pill {
+  background: rgba(4, 12, 28, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-pill-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.stat-pill-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-pill-val.cyan {
+  color: var(--cyan-primary);
+}
+
+/* ==========================================================================
+   Precise Scroll-Triggered Stagger Animations for About Us
+   Smooth 750ms-850ms reveal with 20px subtle initial offset
+   Replays gracefully when scrolling away and returning
+   ========================================================================== */
+.about-reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Revealed state (attached by observer when in viewport) */
+.about-section.is-revealed .about-reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered timing sequence */
+.about-section.is-revealed .delay-eyebrow {
+  transition-delay: 0.04s;
+}
+
+.about-section.is-revealed .delay-headline {
+  transition-delay: 0.16s;
+}
+
+.about-section.is-revealed .delay-desc {
+  transition-delay: 0.28s;
+}
+
+.about-section.is-revealed .delay-btn {
+  transition-delay: 0.40s;
+}
+
+.about-section.is-revealed .delay-visual {
+  transition-delay: 0.22s;
+}
+
+/* Safety Fallback: If JavaScript is disabled or IntersectionObserver is not supported,
+   content must never remain invisible */
+@supports not (intersection-observer: none) {
+  .about-reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .about-reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .about-section {
+    background-position: center top;
+  }
+
+  .about-two-col-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-visual-card {
+    max-width: 100%;
+  }
+
+  .about-headline {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section {
+    padding: 4.5rem 0;
+    background-position: center 20%;
+  }
+
+  .about-headline {
+    font-size: 1.85rem;
+  }
+
+  .about-description {
+    font-size: 0.98rem;
+  }
+
+  .about-action-group {
+    width: 100%;
+  }
+
+  .about-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .visual-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

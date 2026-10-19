@@ -1,11 +1,18 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './CompanySections.css';
 
 export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation }) {
+  const sectionRef = useScrollReveal({ threshold: 0.1 });
+  const card1Ref = useScrollReveal({ threshold: 0.15 });
+  const card2Ref = useScrollReveal({ threshold: 0.15 });
+  const card3Ref = useScrollReveal({ threshold: 0.15 });
+
   return (
     <section className="company-section platform-section" id="platform">
+      <div className="section-transition-top" aria-hidden="true" />
       <div className="container">
-        <div className="section-header">
+        <div ref={sectionRef} className="section-header reveal-on-scroll">
           <div className="section-badge font-mono">PLATFORM ARCHITECTURE</div>
           <h2 className="section-title">
             The <span className="highlight-text">NexShield Telemetry Mesh</span>
@@ -17,7 +24,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
         </div>
 
         <div className="platform-grid">
-          <div className="platform-card">
+          <div ref={card1Ref} className="platform-card reveal-on-scroll">
             <div className="platform-step-num font-mono">01</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -34,7 +41,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
             <div className="platform-card-meta font-mono">Sub-millisecond packet telemetry</div>
           </div>
 
-          <div className="platform-card">
+          <div ref={card2Ref} className="platform-card reveal-on-scroll reveal-delay-1">
             <div className="platform-step-num font-mono">02</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -49,7 +56,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
             <div className="platform-card-meta font-mono">Dynamic node topology &amp; indicators</div>
           </div>
 
-          <div className="platform-card">
+          <div ref={card3Ref} className="platform-card reveal-on-scroll reveal-delay-2">
             <div className="platform-step-num font-mono">03</div>
             <div className="platform-card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -93,77 +100,14 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
   );
 }
 
-export function AboutSection() {
-  return (
-    <section className="company-section about-section" id="about">
-      <div className="container">
-        <div className="about-split-layout">
-          <div className="about-content">
-            <div className="section-badge font-mono">ABOUT NEXSHIELD</div>
-            <h2 className="section-title">
-              Pioneering <span className="highlight-text">Autonomous Cyber Resilience</span>
-            </h2>
-            <p className="about-lead">
-              Founded on the belief that modern cloud scale moves too quickly for manual incident response, 
-              NexShield engineers autonomous defensive systems that outpace automated adversaries.
-            </p>
-            <p className="about-text">
-              Our engineering team blends distributed systems architecture, Linux kernel eBPF optimization, 
-              and post-quantum cryptographic lattices. We protect mission-critical financial networks, healthcare infrastructure, 
-              and enterprise cloud clusters against nation-state tier attacks and rapid zero-day exploitation.
-            </p>
-
-            <div className="about-pillars">
-              <div className="pillar-item">
-                <span className="pillar-check">&#10003;</span>
-                <div>
-                  <strong>Zero Operational Friction:</strong> Transparent daemon deployment requiring zero code modifications.
-                </div>
-              </div>
-              <div className="pillar-item">
-                <span className="pillar-check">&#10003;</span>
-                <div>
-                  <strong>Post-Quantum Future-Proof:</strong> Kyber and Dilithium algorithm implementations baked into every enclave.
-                </div>
-              </div>
-              <div className="pillar-item">
-                <span className="pillar-check">&#10003;</span>
-                <div>
-                  <strong>Autonomous Containment:</strong> Sub-second isolation loops before threats establish persistence.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="about-visual-panel">
-            <div className="about-stat-card">
-              <div className="about-stat-num font-mono">99.99%</div>
-              <div className="about-stat-label">Autonomous Mitigation Uptime</div>
-            </div>
-            <div className="about-stat-card">
-              <div className="about-stat-num font-mono">4.2M+</div>
-              <div className="about-stat-label">Daily Threat Vectors Deflected</div>
-            </div>
-            <div className="about-stat-card">
-              <div className="about-stat-num font-mono">&lt; 1.2ms</div>
-              <div className="about-stat-label">Average Response Convergence</div>
-            </div>
-            <div className="about-stat-card highlight-glow">
-              <div className="about-stat-num font-mono">NIST-Ready</div>
-              <div className="about-stat-label">Post-Quantum Lattice Enclaves</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function ContactSection({ onContactAction }) {
+  const contactBoxRef = useScrollReveal({ threshold: 0.15 });
+
   return (
     <section className="company-section contact-section" id="contact">
+      <div className="section-transition-top" aria-hidden="true" />
       <div className="container">
-        <div className="contact-box">
+        <div ref={contactBoxRef} className="contact-box reveal-on-scroll">
           <div className="contact-glow-circle"></div>
           
           <div className="section-badge font-mono">ENTERPRISE INQUIRIES</div>

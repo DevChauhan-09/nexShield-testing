@@ -1,8 +1,28 @@
 .capabilities-section {
-  padding: 6rem 0 5.5rem;
+  padding: 6.5rem 0 5.5rem;
   position: relative;
-  border-top: 1px solid rgba(56, 189, 248, 0.16);
-  background: linear-gradient(180deg, #040e22 0%, #071836 50%, #030a1a 100%);
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 10%, rgba(14, 116, 144, 0.12) 0%, transparent 70%),
+    linear-gradient(180deg, #030a1c 0%, #061533 50%, #051433 100%);
+}
+
+/* Subtle, seamless transition divider between sections (no harsh borders) */
+.section-transition-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(56, 189, 248, 0.08) 15%, 
+    rgba(0, 242, 254, 0.28) 50%, 
+    rgba(56, 189, 248, 0.08) 85%, 
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .section-header {
@@ -82,9 +102,9 @@
 .capability-card:hover,
 .capability-card.active-card {
   transform: translateY(-6px);
-  border-color: rgba(0, 242, 254, 0.45);
-  background: rgba(14, 28, 58, 0.85);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.15);
+  border-color: #38bdf8;
+  background: linear-gradient(150deg, rgba(22, 60, 125, 0.95) 0%, rgba(14, 38, 85, 0.98) 100%);
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 242, 254, 0.35);
 }
 
 .capability-card:hover::before,
