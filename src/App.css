@@ -6,16 +6,17 @@
 }
 
 .hero-section {
-  padding: 4.5rem 0 6rem;
+  padding: 5rem 0 6rem;
   position: relative;
-  z-index: 1;
+  background-color: var(--bg-darkest);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.hero-layout-split {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
+.hero-container-static {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 /* Footer */
@@ -90,18 +91,17 @@
   }
 }
 
-/* Responsive Split Layout */
+/* Responsive Hero Layout */
 @media (max-width: 1040px) {
-  .hero-layout-split {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
   .hero-section {
-    padding: 3rem 0 4rem;
+    padding: 5rem 0 5rem;
   }
 }
 
 @media (max-width: 640px) {
+  .hero-section {
+    padding: 3.5rem 0 3.5rem;
+  }
   .interactive-toast {
     left: 1rem;
     right: 1rem;

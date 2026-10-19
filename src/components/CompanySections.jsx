@@ -68,8 +68,8 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
 
         <div className="platform-cta-banner">
           <div className="platform-banner-text">
-            <h4>Experience the Live Mesh in Action</h4>
-            <p>Inspect active telemetry nodes or trigger a simulated perimeter attack in the hero interface above.</p>
+            <h4>Explore NexShield Enterprise Capabilities</h4>
+            <p>Deploy kernel-level observability, quantum-safe cryptosystems, and automated perimeter micro-isolation.</p>
           </div>
           <div className="platform-banner-actions">
             <button 
@@ -77,7 +77,7 @@ export default function PlatformSection({ onScrollToNetwork, onTriggerSimulation
               className="btn btn-secondary" 
               onClick={onScrollToNetwork}
             >
-              View Hero Mesh &uarr;
+              Explore Solutions &darr;
             </button>
             <button 
               type="button" 

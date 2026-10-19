@@ -1,0 +1,197 @@
+warning: in the working copy of 'src/App.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/CompanySections.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/HeroLeft.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/HeroLeft.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/App.css b/src/App.css[m
+[1mindex f977d45..0b0541a 100644[m
+[1m--- a/src/App.css[m
+[1m+++ b/src/App.css[m
+[36m@@ -6,16 +6,17 @@[m
+ }[m
+ [m
+ .hero-section {[m
+[31m-  padding: 4.5rem 0 6rem;[m
+[32m+[m[32m  padding: 5rem 0 6rem;[m
+   position: relative;[m
+[31m-  z-index: 1;[m
+[32m+[m[32m  background-color: var(--bg-darkest);[m
+[32m+[m[32m  border-bottom: 1px solid rgba(255, 255, 255, 0.05);[m
+ }[m
+ [m
+[31m-.hero-layout-split {[m
+[31m-  display: grid;[m
+[31m-  grid-template-columns: 1.1fr 0.9fr;[m
+[31m-  gap: 3.5rem;[m
+[32m+[m[32m.hero-container-static {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  justify-content: center;[m
+   align-items: center;[m
+[32m+[m[32m  width: 100%;[m
+ }[m
+ [m
+ /* Footer */[m
+[36m@@ -90,18 +91,17 @@[m
+   }[m
+ }[m
+ [m
+[31m-/* Responsive Split Layout */[m
+[32m+[m[32m/* Responsive Hero Layout */[m
+ @media (max-width: 1040px) {[m
+[31m-  .hero-layout-split {[m
+[31m-    grid-template-columns: 1fr;[m
+[31m-    gap: 4rem;[m
+[31m-  }[m
+   .hero-section {[m
+[31m-    padding: 3rem 0 4rem;[m
+[32m+[m[32m    padding: 5rem 0 5rem;[m
+   }[m
+ }[m
+ [m
+ @media (max-width: 640px) {[m
+[32m+[m[32m  .hero-section {[m
+[32m+[m[32m    padding: 3.5rem 0 3.5rem;[m
+[32m+[m[32m  }[m
+   .interactive-toast {[m
+     left: 1rem;[m
+     right: 1rem;[m
+[1mdiff --git a/src/App.jsx b/src/App.jsx[m
+[1mindex c0775a1..31a6edd 100644[m
+[1m--- a/src/App.jsx[m
+[1m+++ b/src/App.jsx[m
+[36m@@ -1,79 +1,14 @@[m
+[31m-import React, { useState, useEffect } from 'react';[m
+[32m+[m[32mimport React, { useState } from 'react';[m
+ import Navbar from './components/Navbar';[m
+ import HeroLeft from './components/HeroLeft';[m
+[31m-import HeroRightVisual from './components/HeroRightVisual';[m
+ import CapabilitiesSection from './components/CapabilitiesSection';[m
+ import PlatformSection, { AboutSection, ContactSection } from './components/CompanySections';[m
+[31m-import { NETWORK_NODES, NETWORK_EDGES, CAPABILITIES } from './data/cyberData';[m
+[32m+[m[32mimport { CAPABILITIES } from './data/cyberData';[m
+ import './App.css';[m
+ [m
+ export default function App() {[m
+[31m-  // State management for interactive nodes & simulation[m
+[31m-  const [nodes, setNodes] = useState(NETWORK_NODES);[m
+[31m-  const [selectedNodeId, setSelectedNodeId] = useState('node-core');[m
+[31m-  const [attackActive, setAttackActive] = useState(false);[m
+   const [toastMessage, setToastMessage] = useState(null);[m
+ [m
+[31m-  // Animated live metrics counter state[m
+[31m-  const [metrics, setMetrics] = useState({[m
+[31m-    threatsBlocked: 148290,[m
+[31m-    latencyMs: 1.2,[m
+[31m-    meshIntegrity: 99.98[m
+[31m-  });[m
+[31m-[m
+[31m-  // Simulated live counter ticker effect[m
+[31m-  useEffect(() => {[m
+[31m-    const interval = setInterval(() => {[m
+[31m-      setMetrics(prev => ({[m
+[31m-        threatsBlocked: prev.threatsBlocked + Math.floor(Math.random() * 4),[m
+[31m-        latencyMs: attackActive ? 34.6 : +(1.1 + Math.random() * 0.3).toFixed(1),[m
+[31m-        meshIntegrity: attackActive ? 98.42 : +(99.96 + Math.random() * 0.03).toFixed(2)[m
+[31m-      }));[m
+[31m-    }, 2800);[m
+[31m-[m
+[31m-    return () => clearInterval(interval);[m
+[31m-  }, [attackActive]);[m
+[31m-[m
+[31m-  // Handle node selection[m
+[31m-  const handleSelectNode = (nodeId) => {[m
+[31m-    setSelectedNodeId(nodeId);[m
+[31m-    const targetNode = nodes.find(n => n.id === nodeId);[m
+[31m-    showToast(`Inspecting ${targetNode?.label || 'Node'}: Telemetry Stream Synced`);[m
+[31m-  };[m
+[31m-[m
+[31m-  // Trigger attack simulation[m
+[31m-  const handleTriggerSimulation = () => {[m
+[31m-    setAttackActive(true);[m
+[31m-    setSelectedNodeId('node-edge');[m
+[31m-    setMetrics(prev => ({[m
+[31m-      ...prev,[m
+[31m-      threatsBlocked: prev.threatsBlocked + 18,[m
+[31m-      latencyMs: 48.2,[m
+[31m-      meshIntegrity: 97.8[m
+[31m-    }));[m
+[31m-    showToast('🚨 Simulated DDoS Vector Injected into AP-East Gateway!');[m
+[31m-  };[m
+[31m-[m
+[31m-  // Mitigate attack[m
+[31m-  const handleMitigateThreat = () => {[m
+[31m-    setAttackActive(false);[m
+[31m-    setMetrics(prev => ({[m
+[31m-      ...prev,[m
+[31m-      threatsBlocked: prev.threatsBlocked + 1,[m
+[31m-      latencyMs: 1.4,[m
+[31m-      meshIntegrity: 99.99[m
+[31m-    }));[m
+[31m-    showToast('🛡️ Threat Vector Isolated: eBPF BGP Anycast Filter Applied');[m
+[31m-  };[m
+[31m-[m
+[31m-  // Toast notification system[m
+[31m-  const showToast = (msg) => {[m
+[31m-    setToastMessage(msg);[m
+[31m-    setTimeout(() => {[m
+[31m-      setToastMessage(prev => prev === msg ? null : prev);[m
+[31m-    }, 3800);[m
+[31m-  };[m
+[31m-[m
+   // Smooth scroll handler with support for Home (top)[m
+   const handleScrollToSection = (sectionId) => {[m
+     if (sectionId === 'hero') {[m
+[36m@@ -86,38 +21,35 @@[m [mexport default function App() {[m
+     }[m
+   };[m
+ [m
+[32m+[m[32m  // Toast notification system[m
+[32m+[m[32m  const showToast = (msg) => {[m
+[32m+[m[32m    setToastMessage(msg);[m
+[32m+[m[32m    setTimeout(() => {[m
+[32m+[m[32m      setToastMessage(prev => prev === msg ? null : prev);[m
+[32m+[m[32m    }, 3800);[m
+[32m+[m[32m  };[m
+[32m+[m
+   return ([m
+     <div className="app-wrapper">[m
+[31m-      {/* Ambient background graphics */}[m
+[31m-      <div className="ambient-grid" aria-hidden="true"></div>[m
+[31m-      <div className="glow-orb-top-left" aria-hidden="true"></div>[m
+[31m-      <div className="glow-orb-top-right" aria-hidden="true"></div>[m
+[31m-[m
+[31m-      {/* Responsive Navbar with Home, Solutions, Platform, About, Contact */}[m
+[32m+[m[32m      {/* Responsive Floating Cybersecurity Navbar */}[m
+       <Navbar[m
+         onScrollToSection={handleScrollToSection}[m
+[31m-        onTriggerSimulation={handleTriggerSimulation}[m
+[32m+[m[32m        onGetStarted={() => {[m
+[32m+[m[32m          handleScrollToSection('solutions');[m
+[32m+[m[32m          showToast('🚀 Welcome to NexShield. Choose an enterprise deployment option below.');[m
+[32m+[m[32m        }}[m
+[32m+[m[32m        onSignIn={() => {[m
+[32m+[m[32m          showToast('🔐 NexShield Zero-Trust Portal authentication initiated.');[m
+[32m+[m[32m        }}[m
+       />[m
+ [m
+       {/* Main Hero Container */}[m
+       <main id="hero" className="hero-section">[m
+[31m-        <div className="container hero-layout-split">[m
+[31m-          {/* Left Column: Headlines & Actions */}[m
+[32m+[m[32m        <div className="container hero-container-static">[m
+[32m+[m[32m          {/* Headlines & Actions */}[m
+           <HeroLeft[m
+[31m-            metrics={metrics}[m
+[31m-            onInspectNode={handleSelectNode}[m
+             onScrollToCapabilities={() => handleScrollToSection('solutions')}[m
+[31m-            activeSimulation={attackActive}[m
+[31m-          />[m
+[31m-[m
+[31m-          {/* Right Column: Visual Mesh + Floating Dashboard */}[m
+[31m-          <HeroRightVisual[m
+[31m-            nodes={nodes}[m
+[31m-            edges={NETWORK_EDGES}[m
+[31m-            selectedNodeId={selectedNodeId}[m
+[31m-            onSelectNo
