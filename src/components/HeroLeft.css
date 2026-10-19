@@ -24,24 +24,30 @@
 
 /* Main Heading */
 .hero-title {
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.035em;
   color: #ffffff;
+  text-shadow: 0 2px 14px rgba(2, 8, 22, 0.8), 0 0 35px rgba(0, 0, 0, 0.6);
   margin-bottom: 1.75rem;
+}
+
+.hero-title-line {
+  display: block;
 }
 
 .title-highlight {
   color: var(--cyan-primary);
-  display: inline-block;
+  text-shadow: 0 0 25px rgba(0, 242, 254, 0.5), 0 2px 14px rgba(2, 8, 22, 0.85);
 }
 
 /* Supporting Descriptive Copy */
 .hero-description {
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.75;
-  color: var(--text-muted);
+  color: var(--text-ice);
+  text-shadow: 0 2px 10px rgba(2, 8, 22, 0.85), 0 0 20px rgba(2, 8, 22, 0.7);
   max-width: 720px;
   margin: 0 auto 2.75rem;
 }

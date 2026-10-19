@@ -7,33 +7,31 @@ export default function HeroLeft({
 }) {
   return (
     <div className="hero-content-wrapper">
-      {/* Category / Eyebrow Tag */}
+      {/* Eyebrow */}
       <div className="hero-eyebrow font-mono">
-        ENTERPRISE CYBER DEFENSE // KERNEL OBSERVABILITY
+        CONFIDENCE IN EVERY CONNECTION
       </div>
 
-      {/* Main Impact Headline */}
+      {/* Main headline, on two lines */}
       <h1 className="hero-title">
-        Autonomous Cloud Defense &amp;{' '}
-        <span className="title-highlight">Threat Neutralization</span>
+        <span className="hero-title-line">Your Digital World.</span>
+        <span className="hero-title-line title-highlight">Under a Stronger Shield.</span>
       </h1>
 
-      {/* Supporting Descriptive Copy */}
+      {/* Description */}
       <p className="hero-description">
-        Continuous kernel-level observability and automated micro-isolation. 
-        Detect credential hijacking, anomalous telemetry, and multi-vector intrusions in 
-        sub-millisecond execution loops before exfiltration begins.
+        Gain a clearer picture of your digital risks with security intelligence designed to help you protect critical systems and move forward confidently.
       </p>
 
-      {/* Primary & Secondary Action CTAs */}
+      {/* Primary CTA & Secondary CTA */}
       <div className="hero-cta-group">
         <button
           type="button"
           className="btn btn-primary hero-btn-main"
           onClick={onScrollToCapabilities}
-          aria-label="Explore Enterprise Solutions"
+          aria-label="Get Started with NexShield"
         >
-          Explore Solutions
+          Get Started
           <svg
             className="btn-arrow-icon"
             viewBox="0 0 24 24"
@@ -52,9 +50,9 @@ export default function HeroLeft({
           type="button"
           className="btn btn-secondary hero-btn-sub"
           onClick={onExplorePlatform}
-          aria-label="View Platform Architecture"
+          aria-label="Learn More about NexShield"
         >
-          View Platform Architecture
+          Learn More
         </button>
       </div>
     </div>

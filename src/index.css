@@ -4,24 +4,27 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette */
-  --bg-darkest: #040812;
-  --bg-deep: #070e1e;
-  --bg-card: rgba(11, 22, 44, 0.72);
-  --bg-card-hover: rgba(16, 32, 64, 0.85);
-  --bg-glass: rgba(14, 28, 56, 0.65);
-  --bg-glass-border: rgba(0, 242, 254, 0.18);
-  --bg-glass-glow: rgba(0, 242, 254, 0.08);
+  /* Luminous Ocean & Cybersecurity Blue Palette */
+  --bg-darkest: #030a1a;
+  --bg-deep: #071530;
+  --bg-ocean: #0a1f44;
+  --bg-ocean-light: #0e2b5c;
+  --bg-card: rgba(10, 28, 60, 0.72);
+  --bg-card-hover: rgba(16, 42, 88, 0.85);
+  --bg-glass: rgba(12, 30, 64, 0.65);
+  --bg-glass-border: rgba(56, 189, 248, 0.22);
+  --bg-glass-glow: rgba(0, 242, 254, 0.1);
 
-  /* Primary Accent: Electric Cyan */
+  /* Primary Accent: Electric Cyan & Sky Blue */
   --cyan-primary: #00f2fe;
-  --cyan-glow: #4facfe;
-  --cyan-dim: rgba(0, 242, 254, 0.15);
+  --cyan-glow: #38bdf8;
+  --cyan-dim: rgba(0, 242, 254, 0.16);
+  --blue-electric: #0284c7;
 
-  /* Secondary Accent: Radiant Violet / Magenta */
-  --violet-primary: #8a2be2;
-  --violet-glow: #a855f7;
-  --violet-dim: rgba(168, 85, 247, 0.15);
+  /* Secondary Accent: Restrained Violet / Royal Indigo */
+  --violet-primary: #7c3aed;
+  --violet-glow: #9333ea;
+  --violet-dim: rgba(124, 58, 237, 0.18);
 
   /* Alert & Status Indicators */
   --status-nominal: #10b981;
@@ -31,19 +34,22 @@
   --status-critical: #ef4444;
   --status-critical-glow: rgba(239, 68, 68, 0.45);
 
-  /* Typography Colors */
+  /* Luminous Typography Colors */
   --text-main: #f8fafc;
+  --text-ice: #e0f2fe;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
   --text-cyan: #38bdf8;
+  --text-blue-light: #bae6fd;
 
   /* Typography Scales */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Shadows & Glows */
+  /* Shadows & Luminous Glows */
   --glow-cyan: 0 0 25px rgba(0, 242, 254, 0.35);
-  --glow-violet: 0 0 25px rgba(168, 85, 247, 0.3);
+  --glow-ocean: 0 0 35px rgba(14, 116, 144, 0.25);
+  --glow-violet: 0 0 25px rgba(124, 58, 237, 0.3);
   --card-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
 
   /* Transitions */
@@ -74,7 +80,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background: radial-gradient(circle at 50% 0%, #0d1e3d 0%, var(--bg-darkest) 75%);
+  background: radial-gradient(circle at 50% 0%, #0d2857 0%, #081736 45%, var(--bg-darkest) 85%);
 }
 
 /* Background Subtle Grid Effect */
@@ -164,14 +170,18 @@ button:focus-visible, a:focus-visible {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  color: #030814;
-  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+  background: linear-gradient(135deg, #00f2fe 0%, #0ea5e9 60%, #0284c7 100%);
+  color: #020c1d;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.4), 0 0 12px rgba(14, 165, 233, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(0, 242, 254, 0.55);
+  background: linear-gradient(135deg, #38bdf8 0%, #00f2fe 70%, #0ea5e9 100%);
+  box-shadow: 0 6px 28px rgba(0, 242, 254, 0.6), 0 0 20px rgba(56, 189, 248, 0.4);
+  color: #010814;
 }
 
 .btn-primary:active {
@@ -179,18 +189,19 @@ button:focus-visible, a:focus-visible {
 }
 
 .btn-secondary {
-  background: rgba(14, 28, 56, 0.7);
-  color: var(--text-main);
-  border: 1px solid rgba(0, 242, 254, 0.28);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 26, 58, 0.65);
+  color: var(--text-ice);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .btn-secondary:hover {
-  background: rgba(22, 44, 88, 0.85);
-  border-color: rgba(0, 242, 254, 0.55);
-  color: #fff;
+  background: rgba(14, 36, 78, 0.85);
+  border-color: rgba(0, 242, 254, 0.65);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.15);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(0, 242, 254, 0.25);
 }
 
 .btn-secondary:active {

@@ -43,8 +43,24 @@ export default function App() {
         }}
       />
 
-      {/* Main Hero Container */}
+      {/* Main Hero Container with Local Background Video */}
       <main id="hero" className="hero-section">
+        {/* Background Video Layer */}
+        <div className="hero-video-container" aria-hidden="true">
+          <video
+            className="hero-bg-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          >
+            <source src="/videos/nexshield-background.mp4" type="video/mp4" />
+          </video>
+          {/* Balanced translucent overlay ensuring high contrast & readability */}
+          <div className="hero-video-overlay" />
+        </div>
+
         <div className="container hero-container-static">
           {/* Headlines & Actions */}
           <HeroLeft

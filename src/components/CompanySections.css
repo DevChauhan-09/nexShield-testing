@@ -6,12 +6,12 @@
 .company-section {
   padding: 5.5rem 0;
   position: relative;
-  border-top: 1px solid rgba(0, 242, 254, 0.1);
+  border-top: 1px solid rgba(56, 189, 248, 0.16);
 }
 
 /* ---------------- Platform Section ---------------- */
 .platform-section {
-  background: linear-gradient(180deg, rgba(7, 14, 30, 0.7) 0%, rgba(4, 8, 18, 0.85) 100%);
+  background: linear-gradient(180deg, #07193b 0%, #0c2759 50%, #061533 100%);
 }
 
 .platform-grid {
@@ -22,8 +22,8 @@
 }
 
 .platform-card {
-  background: rgba(10, 20, 42, 0.6);
-  border: 1px solid rgba(0, 242, 254, 0.14);
+  background: linear-gradient(145deg, rgba(14, 38, 80, 0.7) 0%, rgba(9, 24, 52, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 20px;
   padding: 2.25rem 1.85rem;
   position: relative;
@@ -126,7 +126,7 @@
 
 /* ---------------- About Section ---------------- */
 .about-section {
-  background: linear-gradient(180deg, rgba(4, 8, 18, 0.85) 0%, rgba(7, 14, 32, 0.95) 100%);
+  background: linear-gradient(180deg, #05132d 0%, #081d45 50%, #040e22 100%);
 }
 
 .about-split-layout {

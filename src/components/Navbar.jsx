@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import NavbarCyberVisual from './NavbarCyberVisual';
 import { NAVBAR_MENU, LANGUAGES } from '../data/navbarData';
 import './Navbar.css';
 
@@ -96,14 +95,11 @@ export default function Navbar({ onScrollToSection, onGetStarted, onSignIn }) {
     <div className="floating-navbar-wrapper" ref={navRef}>
       {/* 
         The Floating Navbar Container:
-        Rounded container with overflow:hidden clipping the background visual,
-        layered above the page with refined borders & backdrop-filter.
+        Clean, static, translucent blue-tinted glass surface complementing the hero section.
+        Completely static with no animations or moving visuals.
       */}
       <header className="floating-navbar">
-        {/* Layer 1: Strictly Confined Cybersecurity Visual inside container */}
-        <NavbarCyberVisual />
-
-        {/* Layer 2: Interactive Navbar Content Layer */}
+        {/* Interactive Navbar Content Layer */}
         <div className="navbar-inner-content">
           {/* GROUP 1: Brand Group (Logo icon + Brand Name) */}
           <div className="nav-brand-group">
